@@ -25,11 +25,12 @@ use std::io;
 fn read_and_validate(b: &mut dyn io::BufRead) -> Result<PositiveNonzeroInteger, Box<dyn error::Error>> {
     let mut line = String::new();
     b.read_line(&mut line)
-        .map_err(|e| e.into());
+        .map_err(|e| e.into())?;
     let num: i64 = line.trim().parse()
-        .map_err(|e| e.into());
-    let answer = PositiveNonzeroInteger::new(num);
-    answer.map_err(|e| e.into())
+        .map_err(|e| e.into())?;
+    let answer = PositiveNonzeroInteger::new(num)
+        .map_err(|e| e.into())?;
+    Ok(answer)
 }
 
 // This is a test helper function that turns a &str into a BufReader.
