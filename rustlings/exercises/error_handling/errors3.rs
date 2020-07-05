@@ -12,7 +12,7 @@ fn main() {
     let mut tokens = 100;
     let pretend_user_input = "8";
 
-    let cost = total_cost(pretend_user_input).unwrap();
+    let cost = total_cost(pretend_user_input).expect("error");
 
     if cost > tokens {
         println!("You can't afford that many!");
