@@ -7,7 +7,7 @@
 // I AM NOT DONE
 
 fn main() {
-    let vec0 = Vec::new();
+    let vec0 = Vec::<i32>::new();
 
     let mut vec1 = fill_vec();
 
@@ -20,7 +20,7 @@ fn main() {
 
 // `fill_vec()` no longer take `vec: Vec<i32>` as argument
 fn fill_vec() -> Vec<i32> {
-    let mut vec = Vec::<i32>::new();
+    let mut vec = Vec::new();
 
     vec.push(22);
     vec.push(44);
