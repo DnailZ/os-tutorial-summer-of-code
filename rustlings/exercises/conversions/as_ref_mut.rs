@@ -7,7 +7,7 @@
 // Add the AsRef trait appropriately as a trait bound
 use std::convert::AsRef;
 
-fn byte_counter<T: AsRef>(arg: T) -> usize {
+fn byte_counter<T: AsRef<str>>(arg: T) -> usize {
     arg.as_ref().as_bytes().len()
 }
 
