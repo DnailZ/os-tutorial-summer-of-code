@@ -36,10 +36,10 @@ fn main() {
     thread::spawn(move || {
         for _ in 0..10 {
             thread::sleep(Duration::from_millis(250));
-            status_shared.lock()?.add_by_one();
+            status_shared.lock().unwarp().add_by_one();
         }
     });
-    while status.lock().get() < 10 {
+    while status.lock().unwarp().get() < 10 {
         println!("waiting... ");
         thread::sleep(Duration::from_millis(500));
     }
