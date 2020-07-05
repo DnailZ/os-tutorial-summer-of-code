@@ -9,7 +9,7 @@
 fn main() {
     let x = 1.2331f64;
     let y = 1.2332f64;
-    const eps = 0.0002f64;
+    const eps : f64 = 0.0002f64;
     if (y - x).abs() > eps {
         println!("Success!");
     }
