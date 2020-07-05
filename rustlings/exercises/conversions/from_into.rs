@@ -39,8 +39,9 @@ impl From<&str> for Person {
         let age = split_iter.next().unwrap_or("30").parse::<usize>();
         if let Err(_) = age {
             Default::default()
+        } else {
+            Person { name, age }
         }
-        Person { name, age }
     }
 }
 
