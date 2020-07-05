@@ -35,12 +35,12 @@ impl Default for Person {
 impl From<&str> for Person {
     fn from(s: &str) -> Person {
         let mut split_iter = s.split(",");
-        Person {
-            name: String::from(split_iter.next().unwrap()),
-            age: split_iter
-                .next().unwrap()
-                .parse::<usize>().unwrap_or(30),
+        let name = String::from(split_iter.next().unwrap())
+        let age = split_iter.next().unwrap_or("30").parse::<usize>();
+        if let Err(_) = age {
+            Default::default()
         }
+        Person { name, age }
     }
 }
 
