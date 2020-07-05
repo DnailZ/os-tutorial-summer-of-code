@@ -28,7 +28,16 @@ struct Person {
 impl TryFrom<&str> for Person {
     type Error = String;
     fn try_from(s: &str) -> Result<Self, Self::Error> {
-        
+        if s == "" {
+            return Err("the length of the provided string is 0");
+        }
+        let mut split_iter = s.split(",");
+        let name = String::from(split_iter.next().unwrap());
+        if let Ok(age) = split_iter.next().unwrap_or("30").parse::<usize>() {
+            Person { name, age }
+        } else {
+            return Err("parsing error");
+        }
     }
 }
 
