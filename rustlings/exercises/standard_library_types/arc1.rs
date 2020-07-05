@@ -15,11 +15,12 @@ fn main() {
     let mut joinhandles = Vec::new();
 
     for offset in 0..8 {
+        let child_numbers = shared_numbers;
         joinhandles.push(thread::spawn(move || {
             let mut i = offset;
             let mut sum = 0;
-            while i < shared_numbers.len() {
-                sum += shared_numbers[i];
+            while i < child_numbers.len() {
+                sum += child_numbers[i];
                 i += 5;
             }
             println!("Sum of offset {} is {}", offset, sum);
