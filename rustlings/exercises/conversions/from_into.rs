@@ -36,11 +36,11 @@ impl From<&str> for Person {
     fn from(s: &str) -> Person {
         let mut split_iter = s.split(",");
         let name = String::from(split_iter.next().unwrap())
-        let age = split_iter.next().unwrap_or("30").parse::<usize>();
-        if let Err(_) = age {
+        let age_result = split_iter.next().unwrap_or("30").parse::<usize>();
+        if let Err(_) = age_result {
             Default::default()
         } else {
-            Person { name, age }
+            Person { name, age_result.unwrap() }
         }
     }
 }
