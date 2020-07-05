@@ -34,10 +34,10 @@ impl Default for Person {
 // Otherwise, then return an instantiated Person onject with the results
 impl From<&str> for Person {
     fn from(s: &str) -> Person {
-        let split_iter = s.split(",");
+        let mut split_iter = s.split(",");
         Person {
-            name: ,
-            age: 30,
+            name: split_iter.next(),
+            age: split_iter.next().parse::<usize>(),
         }
     }
 }
