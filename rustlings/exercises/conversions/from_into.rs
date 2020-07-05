@@ -39,7 +39,7 @@ impl From<&str> for Person {
             name: String::from(split_iter.next().unwrap()),
             age: split_iter
                 .next().unwrap()
-                .parse::<usize>().unwrap(),
+                .parse::<usize>().unwrap_or(30),
         }
     }
 }
