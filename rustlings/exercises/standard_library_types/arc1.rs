@@ -15,7 +15,7 @@ fn main() {
     let mut joinhandles = Vec::new();
 
     for offset in 0..8 {
-        let child_numbers = shared_numbers;
+        let child_numbers = shared_numbers.clone();
         joinhandles.push(thread::spawn(move || {
             let mut i = offset;
             let mut sum = 0;
