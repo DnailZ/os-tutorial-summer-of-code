@@ -25,10 +25,8 @@ use std::io;
 fn read_and_validate(b: &mut dyn io::BufRead) -> Result<PositiveNonzeroInteger, Box<dyn error::Error>> {
     let mut line = String::new();
     b.read_line(&mut line)?;
-    let num: i64 = line.trim().parse::<i64>()
-        .map_err(|e| Box::new(e))?;
-    let answer = PositiveNonzeroInteger::new(num)
-        .map_err(|e| e.into())?;
+    let num: i64 = line.trim().parse::<i64>()?;
+    let answer = PositiveNonzeroInteger::new(num)?;
     Ok(answer)
 }
 
