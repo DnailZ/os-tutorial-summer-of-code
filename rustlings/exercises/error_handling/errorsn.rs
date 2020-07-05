@@ -26,7 +26,7 @@ fn read_and_validate(b: &mut dyn io::BufRead) -> Result<PositiveNonzeroInteger, 
     let mut line = String::new();
     b.read_line(&mut line)
         .map_err(|e| e.into())?;
-    let num: i64 = line.trim().parse::<i32>()
+    let num: i64 = line.trim().parse::<i64>()
         .map_err(|e| e.into())?;
     let answer = PositiveNonzeroInteger::new(num)
         .map_err(|e| e.into())?;
