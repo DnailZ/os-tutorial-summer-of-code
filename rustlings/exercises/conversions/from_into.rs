@@ -35,7 +35,7 @@ impl Default for Person {
 impl From<&str> for Person {
     fn from(s: &str) -> Person {
         let mut split_iter = s.split(",");
-        let name = String::from(split_iter.next().unwrap())
+        let name = String::from(split_iter.next().unwrap());
         if let Ok(age) = split_iter.next().unwrap_or("30").parse::<usize>() {
             Person { name, age }
         } else {
