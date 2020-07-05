@@ -36,7 +36,7 @@ impl From<&str> for Person {
     fn from(s: &str) -> Person {
         let mut split_iter = s.split(",");
         Person {
-            name: split_iter.next().unwrap(),
+            name: String::from(split_iter.next().unwrap()),
             age: split_iter.next().unwrap().parse::<usize>(),
         }
     }
