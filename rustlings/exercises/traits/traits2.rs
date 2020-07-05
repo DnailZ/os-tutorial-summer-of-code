@@ -19,7 +19,7 @@ trait AppendBar {
 //TODO: Add your code here
 impl AppendBar for Vec<String> {
     fn append_bar(self) -> Self {
-        self.push(String::from("Bar"))
+        self.push(String::from("Bar"));
     }
 }
 
