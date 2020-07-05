@@ -37,7 +37,7 @@ impl From<&str> for Person {
         let mut split_iter = s.split(",");
         let name = String::from(split_iter.next().unwrap())
         if let Ok(age) = split_iter.next().unwrap_or("30").parse::<usize>() {
-            Person { name, age_result.unwrap() }
+            Person { name, age }
         } else {
             Default::default()
         }
