@@ -16,6 +16,16 @@ struct JobStatus {
     jobs_completed: u32,
 }
 
+impl JobStatus {
+    pub fn add_by_one(&mut self) {
+        self.jobs_completed += 1;
+    }
+    pub fn get(&mut self) -> u32{
+        self.jobs_completed
+    }
+
+}
+
 fn main() {
     let status = Arc::new(
         Mutex::new(
