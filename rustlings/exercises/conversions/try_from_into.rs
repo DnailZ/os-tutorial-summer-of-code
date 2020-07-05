@@ -34,7 +34,7 @@ impl TryFrom<&str> for Person {
         let mut split_iter = s.split(",");
         let name = String::from(split_iter.next().unwrap());
         if let Ok(age) = split_iter.next().unwrap_or("30").parse::<usize>() {
-            Person { name, age }
+            Ok(Person { name, age })
         } else {
             return Err("parsing error".into());
         }
