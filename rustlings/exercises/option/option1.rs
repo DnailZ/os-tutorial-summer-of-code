@@ -16,7 +16,8 @@ fn main() {
         let number_to_add: u16 = {
             ((iter * 5) + 2) / (4 * 16)
         };
-
-        numbers[iter as usize] = Some(number_to_add);
+        unsafe {
+            numbers[iter as usize] = Some(number_to_add);
+        }
     }
 }
