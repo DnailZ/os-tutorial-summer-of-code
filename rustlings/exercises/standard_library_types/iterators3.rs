@@ -31,7 +31,7 @@ pub fn divide(a: i32, b: i32) -> Result<i32, DivisionError> {
     if a % b != 0 {
         return Err(DivisionError::NotDivisible);
     }
-    a / b
+    Ok(a / b)
 }
 
 #[cfg(test)]
