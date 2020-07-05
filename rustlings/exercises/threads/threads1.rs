@@ -39,7 +39,7 @@ fn main() {
             status_shared.lock()?.add_by_one();
         }
     });
-    while status.lock()?.get() < 10 {
+    while status.lock().get() < 10 {
         println!("waiting... ");
         thread::sleep(Duration::from_millis(500));
     }
